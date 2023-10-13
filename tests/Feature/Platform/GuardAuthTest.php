@@ -52,7 +52,7 @@ class GuardAuthTest extends TestFeatureCase
     {
         Route::middleware(config('platform.middleware.private'))->get('custom-guard', function () {
             /** @var \Illuminate\Auth\SessionGuard $sessionGuard */
-            $sessionGuard = Auth::guard();
+            $sessionGuard = auth()->guard();
 
             return $sessionGuard->getName();
         })->name('test.custom-guard');

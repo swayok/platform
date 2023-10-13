@@ -20,12 +20,12 @@ class Controller extends BaseController
     protected function checkPermission(string $permission): void
     {
         $this->middleware(static function ($request, $next) use ($permission) {
-            if (Auth::user()->hasAccess($permission)) {
+            if (auth()->user()?->hasAccess($permission)) {
                 return $next($request);
             }
             abort(403);
         });
 
-        abort_if(Auth::user() !== null && ! Auth::user()->hasAccess($permission), 403);
+        abort_if(auth()->user() !== null && ! auth()->user()?->hasAccess($permission), 403);
     }
 }

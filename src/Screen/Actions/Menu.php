@@ -174,7 +174,7 @@ class Menu extends Link
      */
     public function permission($permission = null): self
     {
-        $user = Auth::user();
+        $user = auth()->user();
 
         if ($permission !== null) {
             $this->permit = false;

@@ -35,7 +35,7 @@ class MenuTest extends TestFieldsUnitCase
 
         // without permission
         $user = User::factory()->create();
-        Auth::login($user);
+        auth()->login($user);
         $link = Menu::make('About')->permission('unknown');
 
         $this->assertNull($link->render());
@@ -50,7 +50,7 @@ class MenuTest extends TestFieldsUnitCase
         $user = User::factory()->create([
             'permissions' => ['unknown' => true],
         ]);
-        Auth::login($user);
+        auth()->login($user);
         $link = Menu::make('About')->permission('unknown');
 
         $this->assertNotNull($link->render());
