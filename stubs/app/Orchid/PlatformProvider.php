@@ -100,7 +100,11 @@ class PlatformProvider extends OrchidServiceProvider
     public function permissions(): array
     {
         return [
+            ItemPermission::group(__('Main'))
+                ->addPermission('platform.index', __('Main')),
+
             ItemPermission::group(__('System'))
+                ->addPermission('platform.systems.attachment', __('Attachment'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
         ];

@@ -31,22 +31,8 @@ class PlatformServiceProvider extends ServiceProvider
             $this->dashboard
                 ->registerResource('stylesheets', config('platform.resource.stylesheets'))
                 ->registerResource('scripts', config('platform.resource.scripts'))
-                ->registerSearch(config('platform.search', []))
-                ->registerPermissions($this->registerPermissionsMain())
-                ->registerPermissions($this->registerPermissionsSystems());
+                ->registerSearch(config('platform.search', []));
         });
-    }
-
-    protected function registerPermissionsMain(): ItemPermission
-    {
-        return ItemPermission::group(__('Main'))
-            ->addPermission('platform.index', __('Main'));
-    }
-
-    protected function registerPermissionsSystems(): ItemPermission
-    {
-        return ItemPermission::group(__('System'))
-            ->addPermission('platform.systems.attachment', __('Attachment'));
     }
 
     /**
