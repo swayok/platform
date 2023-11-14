@@ -30,6 +30,7 @@
                 <label>{{ __('Object search') }}</label>
                 <input class="form-control" type="text"
                        value="{{ $value['search'] ?? ''}}"
+                       name="{{$name}}[search]"
                        data-map-target="search"
                        data-action="keyup->map#search"/>
             </div>
